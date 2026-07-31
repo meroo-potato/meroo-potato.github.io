@@ -1,14 +1,1 @@
-/*
-  index.css (wrapper)
-
-  This file is intentionally small and human-readable. It preserves visual parity
-  by importing the original stylesheet copied to /originals/index.css.
-
-  Edit this file to add custom overrides below the import. If you want to
-  replace the entire stylesheet, you may modify /originals/index.css and then
-  remove the import here.
-*/
-
-@import url('/originals/index.css');
-
-/* --- Add your CSS overrides below this line --- */
+@import"https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap";@layer components;@layer properties{@supports (((-webkit-hyphens:none)) a[href^="mailto:"]{white-space:nowrap}*,:after,:before{box-sizing:border-box}html{line-height:1.5;-webkit-text-size-adjust:100%}*{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}body{margin:0;background:linear-gradient(180deg,#0f172a 0%,#020617 100%);color:#e6eef8;font-feature-settings:"cv02" 1;min-height:100vh;}
