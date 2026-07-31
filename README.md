@@ -13,7 +13,7 @@ Files left untouched
 
 How to add your own content
 - Edit index.html's <div id="root"></div> to include static content, or modify/replace js/app.js to bootstrap your own client-side code.
-- For styles: either edit index.css directly or remove the @import in css/style.css and write your styles there.
+- For styles: either edit index.css directly or remove the @import and author your own CSS in css/style.css.
 
 Preview locally
 - You can run a simple static server from the repo root. Example using Python 3:
