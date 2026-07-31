@@ -1,25 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- Basic meta (keep as-is or edit for new site content) -->
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>omarhany.tech</title>
     <meta name="description" content="omarhany.tech" />
     <meta name="robots" content="index, follow" />
+
+    <!-- OpenGraph / Twitter (edit if you want different social preview) -->
     <meta property="og:title" content="omarhany.tech" />
     <meta property="og:description" content="omarhany.tech" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Personal Site" />
     <meta name="twitter:description" content="omarhany.tech" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="index.js"></script>
-    <link rel="stylesheet" crossorigin href="index.css">
+
+    <!-- Fonts (same as original) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS: wrapper that imports the original index.css. Keeping original CSS file intact to ensure parity. -->
+    <link rel="stylesheet" href="css/style.css" crossorigin />
+
+    <!-- App script: wrapper that loads the original index.js as a module. -->
+    <script type="module" src="js/app.js" crossorigin></script>
+
+    <!--
+      NOTES:
+      - To edit page content, open index.html and update the <div id="root"></div> content or modify the JS that mounts into #root.
+      - To change styles, edit css/style.css (this currently imports the original index.css). To customize, either edit index.css directly or replace the @import with your rules.
+      - To replace the JS bundle with your own source, replace js/app.js and/or update this file to point to a different script.
+    -->
   </head>
+
   <body>
+    <!-- Main mount point for the app. The current site renders into this element. -->
     <div id="root"></div>
   </body>
 </html>
