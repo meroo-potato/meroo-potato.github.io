@@ -1,25 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>omarhany.tech</title>
-    <meta name="description" content="omarhany.tech" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="omarhany.tech" />
-    <meta property="og:description" content="omarhany.tech" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Personal Site" />
-    <meta name="twitter:description" content="omarhany.tech" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="index.js"></script>
-    <link rel="stylesheet" crossorigin href="index.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f2027" id="meta-theme-color">
+  <title>عمر هاني</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================================= -->
+<!-- [SECTION 0A: SVG ICON SPRITE] START                               -->
+<!-- Reusable icons. Use them like: <svg><use href="#i-chevron"/></svg> -->
+<!-- ================================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Chevron -->
+  <symbol id="i-chevron" viewBox="0 0 24 24">
+    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <!-- Close (X) -->
+  <symbol id="i-close" viewBox="0 0 24 24">
+    <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <!-- 1 EGP coin: silver ring + gold centre -->
+  <symbol id="i-coin" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="11" fill="#cfd3d8" stroke="#8d949c" stroke-width="1"/>
+    <circle cx="12" cy="12" r="7" fill="#e2b948" stroke="#a9812a" stroke-width="1"/>
+    <text x="12" y="15.6" text-anchor="middle" font-size="9" font-weight="700" fill="#6b4c10" font-family="Arial, sans-serif">1</text>
+  </symbol>
+  <!-- Instagram -->
+  <symbol id="i-instagram" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>
+  </symbol>
+  <!-- TikTok -->
+  <symbol id="i-tiktok" viewBox="0 0 24 24">
+    <path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.2 5 4.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <!-- WhatsApp -->
+  <symbol id="i-whatsapp" viewBox="0 0 24 24">
+    <path d="M4 20l1.2-4.1A8 8 0 1 1 8.2 19L4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M9 8.5c0 3.2 3.3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-.9-.4-1.8-1.3-2.2-2.2l.8-1-1-2L9 8.5z" fill="currentColor"/>
+  </symbol>
+  <!-- Snapchat (ghost) -->
+  <symbol id="i-snapchat" viewBox="0 0 24 24">
+    <path d="M12 3c3 0 4.6 2.2 4.6 5v2.2l2.4 1-2.4 1.2c.6 1.4 1.6 2.3 2.8 2.8-1 .6-2 .8-3 .8-.6 1.2-1.6 2-4.4 2s-3.8-.8-4.4-2c-1 0-2-.2-3-.8 1.2-.5 2.2-1.4 2.8-2.8L5 11.2l2.4-1V8c0-2.8 1.6-5 4.6-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+<!-- [SECTION 0A: SVG ICON SPRITE] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 0B: BACKGROUND LAYERS] START                             -->
+<!-- Two layers cross-fade when the theme changes. Blobs add colour    -->
+<!-- behind the glass so the blur effect is visible.                   -->
+<!-- ================================================================= -->
+<div class="bg-layer active" id="bg-a" aria-hidden="true"></div>
+<div class="bg-layer" id="bg-b" aria-hidden="true"></div>
+<div class="blob blob-1" aria-hidden="true"></div>
+<div class="blob blob-2" aria-hidden="true"></div>
+<!-- [SECTION 0B: BACKGROUND LAYERS] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 1: NAVBAR] START                                         -->
+<!-- Fixed floating pill. Left = main buttons, Right = warp buttons.   -->
+<!-- ================================================================= -->
+<header class="navbar" id="navbar">
+  <nav class="nav-pill">
+
+    <!-- ----- Left group: language / random theme / settings ----- -->
+    <div class="nav-main">
+      <button class="nav-btn" id="btn-lang" type="button" data-i18n-aria="aria_lang">🌐</button>
+      <button class="nav-btn" id="btn-theme" type="button" data-i18n-aria="aria_theme">🎨</button>
+      <button class="nav-btn" id="btn-settings" type="button" data-i18n-aria="aria_settings">⚙️</button>
+    </div>
+
+    <!-- ----- Right group: nested pill with section warp buttons ----- -->
+    <div class="nav-warp">
+      <button class="warp-btn" type="button" data-warp="section-about" data-i18n-aria="aria_warp_about">👤</button>
+      <button class="warp-btn" type="button" data-warp="section-apps" data-i18n-aria="aria_warp_apps">🎮</button>
+      <button class="warp-btn" type="button" data-warp="section-vault" data-i18n-aria="aria_warp_vault">❓</button>
+    </div>
+
+  </nav>
+</header>
+<!-- [SECTION 1: NAVBAR] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 2: MAIN CONTENT WRAPPER] START                           -->
+<!-- ================================================================= -->
+<main class="container">
+
+
+  <!-- =============================================================== -->
+  <!-- [SECTION 2A: ABOUT ME] START  (unfolded by default)             -->
+  <!-- =============================================================== -->
+  <section class="glass section foldable is-open" id="section-about">
+
+    <button class="fold-trigger" type="button" data-fold-toggle aria-expanded="true">
+      <span class="fold-icon">👤</span>
+      <h2 class="fold-title" data-i18n="sec_about">عني</h2>
+      <svg class="chevron"><use href="#i-chevron"/></svg>
+    </button>
+
+    <div class="fold-body"><div class="fold-inner">
+
+      <!-- ----- Profile picture (changes with theme) ----- -->
+      <div class="profile">
+        <img id="profile-img" class="profile-img" alt="Omar Hany" width="140" height="140">
+      </div>
+
+      <!-- ----- Dynamic welcome text ----- -->
+      <h1 class="welcome">
+        <span data-i18n="welcome_prefix">أهلا بيك في موقعي</span>
+        <span id="dynamic-word" class="dynamic-word">الجامد</span>
+        <span data-i18n="welcome_suffix"></span>
+      </h1>
+
+      <!-- ----- Q&A 1: WHO AM I ----- -->
+      <div class="qa glass-soft foldable is-open">
+        <button class="qa-head" type="button" data-fold-toggle aria-expanded="true">
+          <span data-i18n="q1_title">انا مين؟</span>
+          <svg class="chevron"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="fold-body"><div class="fold-inner">
+          <p class="qa-text" data-i18n="q1_text"></p>
+        </div></div>
+      </div>
+
+      <!-- ----- Q&A 2: WHAT DO I DO ----- -->
+      <div class="qa glass-soft foldable">
+        <button class="qa-head" type="button" data-fold-toggle aria-expanded="false">
+          <span data-i18n="q2_title">بعرف اعمل ايه؟</span>
+          <svg class="chevron"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="fold-body"><div class="fold-inner">
+          <p class="qa-text" data-i18n="q2_text"></p>
+        </div></div>
+      </div>
+
+      <!-- ----- Q&A 3: ACCOUNTS ----- -->
+      <div class="qa glass-soft foldable">
+        <button class="qa-head" type="button" data-fold-toggle aria-expanded="false">
+          <span data-i18n="q3_title">اكونتاتي</span>
+          <svg class="chevron"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="fold-body"><div class="fold-inner">
+          <div class="social-grid">
+            <a class="social-btn" href="https://instagram.com/mer0o_omar" target="_blank" rel="noopener">
+              <svg><use href="#i-instagram"/></svg>
+              <span class="social-text"><b>Instagram</b><small dir="ltr">mer0o_omar</small></span>
+            </a>
+            <a class="social-btn" href="https://www.tiktok.com/@o0_mar" target="_blank" rel="noopener">
+              <svg><use href="#i-tiktok"/></svg>
+              <span class="social-text"><b>TikTok</b><small dir="ltr">o0_mar</small></span>
+            </a>
+            <a class="social-btn" href="https://wa.me/201228733346" target="_blank" rel="noopener">
+              <svg><use href="#i-whatsapp"/></svg>
+              <span class="social-text"><b>WhatsApp</b><small dir="ltr">01228733346</small></span>
+            </a>
+            <a class="social-btn" href="https://www.snapchat.com/add/omar_p0tato" target="_blank" rel="noopener">
+              <svg><use href="#i-snapchat"/></svg>
+              <span class="social-text"><b>Snapchat</b><small dir="ltr">omar_p0tato</small></span>
+            </a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- ----- Q&A 4: FRIENDS ----- -->
+      <div class="qa glass-soft foldable">
+        <button class="qa-head" type="button" data-fold-toggle aria-expanded="false">
+          <span data-i18n="q4_title">صحاب</span>
+          <svg class="chevron"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="fold-body"><div class="fold-inner">
+          <p class="qa-text" data-i18n="friends_text"></p>
+          <p class="kaomoji" dir="ltr">¯\_(ツ)_/¯</p>
+        </div></div>
+      </div>
+
+    </div></div>
+  </section>
+  <!-- [SECTION 2A: ABOUT ME] END -->
+
+
+  <!-- =============================================================== -->
+  <!-- [SECTION 2B: APPS] START  (unfolded by default)                 -->
+  <!-- =============================================================== -->
+  <section class="glass section foldable is-open" id="section-apps">
+
+    <button class="fold-trigger" type="button" data-fold-toggle aria-expanded="true">
+      <span class="fold-icon">🎮</span>
+      <h2 class="fold-title" data-i18n="sec_apps">تطبيقات</h2>
+      <svg class="chevron"><use href="#i-chevron"/></svg>
+    </button>
+
+    <div class="fold-body"><div class="fold-inner">
+
+      <!-- ----- EGP balance bar ----- -->
+      <div class="egp-bar glass-soft">
+        <svg class="egp-coin"><use href="#i-coin"/></svg>
+        <span class="egp-label" data-i18n="egp_label">رصيدك</span>
+        <span class="egp-value"><span id="egp-amount">٠٫٠٠</span> <span data-i18n="egp_unit">جنيه</span></span>
+      </div>
+
+      <!-- ----- App grid (3 columns) -----
+           Tier badge classes: tier-bronze 🥉 | tier-silver 🥈 | tier-gold 🥇
+           To remove a badge, delete the <span class="tier-badge"> line. -->
+      <div class="app-grid">
+
+        <a class="app-card tier-bronze" href="https://omarhany.tech/find">
+          <span class="app-emoji">🔍</span>
+          <span class="app-name" data-i18n="app_find">Find the Emojis</span>
+          <span class="tier-badge">🥉</span>
+        </a>
+
+        <a class="app-card tier-silver" href="https://omarhany.tech/maths">
+          <span class="app-emoji">🧮</span>
+          <span class="app-name" data-i18n="app_maths">Maths</span>
+          <span class="tier-badge">🥈</span>
+        </a>
+
+        <a class="app-card tier-bronze" href="https://omarhany.tech/match">
+          <span class="app-emoji">🐥</span>
+          <span class="app-name" data-i18n="app_match">Match 2</span>
+          <span class="tier-badge">🥉</span>
+        </a>
+
+        <a class="app-card tier-bronze" href="https://omarhany.tech/board">
+          <span class="app-emoji">🖊️</span>
+          <span class="app-name" data-i18n="app_board">Whiteboard</span>
+          <span class="tier-badge">🥉</span>
+        </a>
+
+        <a class="app-card" href="https://omarhany.tech/block">
+          <span class="app-emoji">💥</span>
+          <span class="app-name" data-i18n="app_block">BlockBlast</span>
+        </a>
+
+        <a class="app-card" href="https://omarhany.tech/xo">
+          <span class="app-emoji">❌</span>
+          <span class="app-name" data-i18n="app_xo">Tic Tac Toe</span>
+        </a>
+
+        <a class="app-card" href="https://omarhany.tech/toktok">
+          <span class="app-emoji">🛺</span>
+          <span class="app-name" data-i18n="app_toktok">Toktok Simulator</span>
+        </a>
+
+        <a class="app-card" href="https://omarhany.tech/moto">
+          <span class="app-emoji">🏍️</span>
+          <span class="app-name" data-i18n="app_moto">Moto Jump</span>
+        </a>
+
+        <a class="app-card" href="https://omarhany.tech/monofia">
+          <span class="app-emoji">🌾</span>
+          <span class="app-name" data-i18n="app_monofia">Monofia Simulator</span>
+        </a>
+
+      </div>
+    </div></div>
+  </section>
+  <!-- [SECTION 2B: APPS] END -->
+
+
+  <!-- =============================================================== -->
+  <!-- [SECTION 2C: SECRET VAULT] START  (folded by default)           -->
+  <!-- =============================================================== -->
+  <section class="glass section foldable" id="section-vault">
+
+    <button class="fold-trigger" type="button" data-fold-toggle aria-expanded="false">
+      <span class="fold-icon">❓</span>
+      <h2 class="fold-title" data-i18n="sec_vault">الخزنة السرية</h2>
+      <svg class="chevron"><use href="#i-chevron"/></svg>
+    </button>
+
+    <div class="fold-body"><div class="fold-inner">
+      <p class="vault-hint" data-i18n="vault_hint"></p>
+
+      <div class="terminal">
+        <span class="terminal-prompt" aria-hidden="true">&gt;_</span>
+        <input id="vault-input" class="terminal-input" type="text" dir="ltr"
+               autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"
+               data-i18n-placeholder="vault_placeholder" placeholder="CODE">
+        <button id="vault-submit" class="terminal-btn" type="button" data-i18n="vault_btn">دخول</button>
+      </div>
+
+      <p id="vault-feedback" class="vault-feedback" role="status" aria-live="polite"></p>
+    </div></div>
+  </section>
+  <!-- [SECTION 2C: SECRET VAULT] END -->
+
+</main>
+<!-- [SECTION 2: MAIN CONTENT WRAPPER] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 3: SETTINGS DRAWER] START                                -->
+<!-- Slides from the RIGHT in Arabic and from the LEFT in English.     -->
+<!-- ================================================================= -->
+<div class="backdrop" id="drawer-backdrop"></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+
+  <div class="drawer-head">
+    <h2 data-i18n="settings_title">الإعدادات</h2>
+    <button class="icon-btn" id="drawer-close" type="button" data-i18n-aria="aria_close">
+      <svg><use href="#i-close"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-list">
+
+    <!-- ----- Accordion 1: Language ----- -->
+    <div class="acc glass-soft foldable">
+      <button class="acc-head" type="button" data-fold-toggle aria-expanded="false">
+        <span data-i18n="set_lang">🌐 اختار اللغة</span>
+        <span class="acc-arrow" aria-hidden="true"></span>
+      </button>
+      <div class="fold-body"><div class="fold-inner">
+        <div class="acc-content lang-options">
+          <button class="opt-btn" type="button" data-lang="en">English</button>
+          <button class="opt-btn" type="button" data-lang="ar">العربية</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- ----- Accordion 2: Theme picker (cards are built by main.js) ----- -->
+    <div class="acc glass-soft foldable">
+      <button class="acc-head" type="button" data-fold-toggle aria-expanded="false">
+        <span data-i18n="set_theme">🎨 ألوان الويبسايت</span>
+        <span class="acc-arrow" aria-hidden="true"></span>
+      </button>
+      <div class="fold-body"><div class="fold-inner">
+        <div class="acc-content theme-list" id="theme-list"></div>
+      </div></div>
+    </div>
+
+    <!-- ----- Accordion 3: Refresh (acts immediately) ----- -->
+    <div class="acc glass-soft">
+      <button class="acc-head" type="button" id="btn-refresh">
+        <span data-i18n="set_refresh">🔄 اعادة تحميل</span>
+      </button>
+    </div>
+
+    <!-- ----- Accordion 4: Delete progress (opens confirm dialog) ----- -->
+    <div class="acc glass-soft">
+      <button class="acc-head danger" type="button" id="btn-reset">
+        <span data-i18n="set_reset">🗑️ مسح بيانات التطبيقات</span>
+      </button>
+    </div>
+
+  </div>
+</aside>
+<!-- [SECTION 3: SETTINGS DRAWER] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 4: CONFIRM MODAL + TOAST] START                          -->
+<!-- ================================================================= -->
+<div class="modal" id="confirm-modal" aria-hidden="true">
+  <div class="modal-card glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h3 id="modal-title" data-i18n="warn_title">⚠️ تحذير</h3>
+    <p data-i18n="warn_text"></p>
+    <div class="modal-actions">
+      <button class="btn btn-danger" id="modal-confirm" type="button" data-i18n="warn_yes">نعم، إمسح البيانات</button>
+      <button class="btn btn-ghost" id="modal-cancel" type="button" data-i18n="warn_no">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- [SECTION 4: CONFIRM MODAL + TOAST] END -->
+
+
+<!-- ================================================================= -->
+<!-- [SECTION 5: SCRIPT] START                                         -->
+<!-- ================================================================= -->
+<script src="main.js"></script>
+<!-- [SECTION 5: SCRIPT] END -->
+
+</body>
 </html>
